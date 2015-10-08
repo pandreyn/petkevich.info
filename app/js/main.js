@@ -8,6 +8,7 @@ require('./templates');
 require('./controllers/_index');
 require('./services/_index');
 require('./directives/_index');
+require('../sites/_index');
 
 // create and bootstrap application
 angular.element(document).ready(function() {
@@ -17,7 +18,8 @@ angular.element(document).ready(function() {
     'templates',
     'app.controllers',
     'app.services',
-    'app.directives'
+    'app.directives',
+    'app.sitesModule'
   ];
 
   // mount on window for testing

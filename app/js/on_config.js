@@ -11,9 +11,15 @@ function OnConfig($stateProvider, $locationProvider, $urlRouterProvider) {
   .state('Home', {
     url: '/',
     controller: 'ExampleCtrl as home',
-    templateUrl: 'home.html',
+    templateUrl: 'views/home.html',
     title: 'Home'
-  });
+  })
+      .state('Sites', {
+        url: '/sites',
+        controller: 'SitesCtrl as vm',
+        templateUrl: 'sites/sites.html',
+        title: 'Sites'
+      });
 
   $urlRouterProvider.otherwise('/');
 

@@ -1,5 +1,7 @@
 'use strict';
 
+var root = 'build';
+
 module.exports = {
 
   'browserPort'  : 3000,
@@ -8,43 +10,43 @@ module.exports = {
 
   'styles': {
     'src' : 'app/styles/**/*.scss',
-    'dest': 'build/css',
+    'dest': root + '/css',
     'prodSourcemap': false,
     'sassIncludePaths': []
   },
 
   'scripts': {
-    'src' : 'app/js/**/*.js',
-    'dest': 'build/js'
+    'src' : 'app/**/*.js',
+    'dest': root + '/js'
   },
 
   'images': {
     'src' : 'app/images/**/*',
-    'dest': 'build/images'
+    'dest': root + '/images'
   },
 
   'fonts': {
     'src' : ['app/fonts/**/*'],
-    'dest': 'build/fonts'
+    'dest': root + '/fonts'
   },
 
   'views': {
     'watch': [
       'app/index.html',
-      'app/views/**/*.html'
+      'app/**/*.html'
     ],
-    'src': 'app/views/**/*.html',
+    'src': 'app/**/*.html',
     'dest': 'app/js'
   },
 
   'gzip': {
     'src': 'build/**/*.{html,xml,json,css,js,js.map,css.map}',
-    'dest': 'build/',
+    'dest': root + '/',
     'options': {}
   },
 
   'dist': {
-    'root'  : 'build'
+    'root'  : root
   },
 
   'browserify': {

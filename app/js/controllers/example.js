@@ -7,6 +7,8 @@ var controllersModule = require('./_index');
  */
 function ExampleCtrl() {
 
+  console.log('ExampleCtrl loaded');
+
   // ViewModel
   var vm = this;
 
