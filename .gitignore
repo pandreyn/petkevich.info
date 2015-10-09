@@ -5,3 +5,6 @@ bower_components
 dist
 npm-debug.log
 build
+app/js/templates.js
+app/modules/core/templates.js
+gulp/secret.js

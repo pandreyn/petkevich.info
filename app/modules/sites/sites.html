@@ -1,0 +1,20 @@
+
+
+<div layout="row" layout-align="center">
+
+
+  <div class="md-padding" ng-cloak>
+    <fieldset class="standard">
+      <legend>{{ vm.title }}</legend>
+      <div layout="row" layout-wrap ng-repeat="item in vm.sites">
+
+        <div flex="100">
+          <a ng-href="{{item.url}}" target="_blank" title="{{item.description}}">{{item.name}}</a>
+        </div>
+
+      </div>
+    </fieldset>
+  </div>
+
+
+</div>

@@ -10,6 +10,7 @@ module.exports = {
 
   'styles': {
     'src' : 'app/styles/**/*.scss',
+    'modulesSrc' : ['node_modules/angular-material/angular-material.css'],
     'dest': root + '/css',
     'prodSourcemap': false,
     'sassIncludePaths': []
@@ -36,7 +37,7 @@ module.exports = {
       'app/**/*.html'
     ],
     'src': 'app/**/*.html',
-    'dest': 'app/js'
+    'dest': 'app/modules/core'
   },
 
   'gzip': {
@@ -50,7 +51,7 @@ module.exports = {
   },
 
   'browserify': {
-    'entries'   : ['./app/js/main.js'],
+    'entries'   : ['./app/modules/core/main.js'],
     'bundleName': 'main.js',
     'prodSourcemap' : false
   },

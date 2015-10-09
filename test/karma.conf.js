@@ -36,7 +36,7 @@ module.exports = function(config) {
 
     files: [
       // app-specific code
-      'app/js/main.js',
+      'app/modules/core/main.js',
 
       // 3rd-party resources
       'node_modules/angular-mocks/angular-mocks.js',
