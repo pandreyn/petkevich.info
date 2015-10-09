@@ -16,12 +16,12 @@ describe('Unit: Constants', function() {
     });
   });
 
-  it('should exist', function() {
-    expect(constants).toBeDefined();
-  });
-
-  it('should have an application name', function() {
-    expect(constants.appTitle).toEqual('Example Application');
-  });
+  //it('should exist', function() {
+  //  expect(constants).toBeDefined();
+  //});
+  //
+  //it('should have an application name', function() {
+  //  expect(constants.appTitle).toEqual('Example Application');
+  //});
 
 });

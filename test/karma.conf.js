@@ -10,16 +10,21 @@ module.exports = function (config) {
     basePath: '../',
     frameworks: ['jasmine', 'browserify'],
     preprocessors: {
-      'app/**/*.js': ['browserify', 'babel', 'coverage']
+      'app/**/*.js': ['browserify', 'babel']
     },
-    browsers: ['Chrome'],
-    reporters: ['progress', 'coverage'],
+    browsers: ['PhantomJS'],
+
+    colors:             true,
+    logLevel:           config.LOG_INFO,
+
+    reporters: ['progress'],
 
     autoWatch: true,
-    logLevel: config.LOG_DEBUG,
+    //logLevel: config.LOG_DEBUG,
 
     browserify: {
       debug: true,
+      watch: true,
       transform: [
         'bulkify',
         istanbul({
