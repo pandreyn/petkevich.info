@@ -2,7 +2,7 @@
 
 'use strict';
 
-describe('Unit: ExampleService', function() {
+describe('Unit: SitesService', function() {
 
   var service;
 

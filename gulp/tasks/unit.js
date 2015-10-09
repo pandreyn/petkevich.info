@@ -1,21 +1,15 @@
 'use strict';
 
 var gulp   = require('gulp');
-var karma  = require('gulp-karma');
+var server = require('karma').Server;
 var config = require('../config');
+var path = require('path');
 
-gulp.task('unit', ['views'], function() {
+gulp.task('unit', ['styles', 'copyVendorStyles', 'images', 'fonts', 'views',  'browserify'], function(done) {
 
-  // Nonsensical source to fall back to files listed in karma.conf.js,
-  // see https://github.com/lazd/gulp-karma/issues/9
-  return gulp.src('./thisdoesntexist')
-    .pipe(karma({
-      configFile: config.test.karma,
-      action: 'run'
-    }))
-    .on('error', function(err) {
-      // Make sure failed tests cause gulp to exit non-zero
-      throw err;
-    });
+  new server({
+    configFile: path.resolve(config.test.karma),
+    singleRun: true
+  }, done).start();
 
 });

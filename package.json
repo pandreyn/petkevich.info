@@ -61,7 +61,7 @@
     "karma-jasmine": "^0.3.6",
     "morgan": "^1.6.1",
     "pretty-hrtime": "^1.0.1",
-    "protractor": "^2.5.0",
+    "protractor": "^2.5.1",
     "run-sequence": "^1.1.4",
     "tiny-lr": "^0.2.0",
     "uglifyify": "^3.0.1",
