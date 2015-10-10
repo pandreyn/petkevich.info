@@ -1,30 +1,33 @@
 'use strict';
 
 var istanbul = require('browserify-istanbul');
-var isparta = require('isparta');
+var isparta  = require('isparta');
 
-module.exports = function (config) {
+module.exports = function(config) {
 
   config.set({
 
     basePath: '../',
     frameworks: ['jasmine', 'browserify'],
     preprocessors: {
-      'app/**/*.js': ['browserify', 'babel']
+      'app/modules/**/*.js': ['browserify', 'babel', 'coverage']
+      //'app/js/**/*.js': ['browserify', 'babel', 'coverage']
     },
-    browsers: ['PhantomJS'],
+    browsers: ['Chrome'],
+    //browsers: ['PhantomJS'],
+    reporters: ['progress', 'coverage'],
+    //reporters: ['progress'],
 
-    colors:             true,
-    logLevel:           config.LOG_INFO,
-
-    reporters: ['progress'],
+    coverageReporter: {
+      type : 'html',
+      dir : 'coverage/'
+    },
 
     autoWatch: true,
-    //logLevel: config.LOG_DEBUG,
+    singleRun: true,
 
     browserify: {
       debug: true,
-      watch: true,
       transform: [
         'bulkify',
         istanbul({
@@ -48,10 +51,10 @@ module.exports = function (config) {
       'node_modules/angular-mocks/angular-mocks.js',
 
       // test files
-      //'test/unit/**/*.js'
-      'test/unit/constants_spec.js'
+      'test/unit/**/*.js'
     ]
 
   });
 
 };
+

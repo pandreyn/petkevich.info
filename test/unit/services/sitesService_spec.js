@@ -11,8 +11,8 @@ describe('Unit: SitesService', function() {
     angular.mock.module('app');
 
     // mock the service
-    angular.mock.inject(function(ExampleService) {
-      service = ExampleService;
+    angular.mock.inject(function(SitesService) {
+      service = SitesService;
     });
   });
 

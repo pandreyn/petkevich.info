@@ -8,3 +8,4 @@ build
 app/js/templates.js
 app/modules/core/templates.js
 gulp/secret.js
+coverage

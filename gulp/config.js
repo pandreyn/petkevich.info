@@ -36,7 +36,7 @@ module.exports = {
       'app/index.html',
       'app/**/*.html'
     ],
-    'src': 'app/**/*.html',
+    'src': ['app/**/*.html', '!app/index.html'],
     'dest': 'app/modules/core'
   },
 

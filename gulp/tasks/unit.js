@@ -5,21 +5,14 @@ var server = require('karma').Server;
 var config = require('../config');
 var path = require('path');
 
-gulp.task('unit', ['styles', 'copyVendorStyles', 'images', 'fonts', 'views', 'browserify'], function (done) {
+gulp.task('unit', ['views'], function (done) {
 
   new server({
     configFile: path.resolve(config.test.karma),
-    singleRun: true
+    action: 'run'
+    //singleRun: true
   }, function(){
-    return done()
+    done()
   }).start();
-
-
-  //server.start({
-  //  configFile: path.resolve(config.test.karma),
-  //  singleRun: true
-  //}, function(){
-  //  done()
-  //});
 
 });
