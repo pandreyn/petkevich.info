@@ -7,10 +7,10 @@ module.exports = function(config) {
 
   config.set({
 
-    basePath: '../',
+    basePath: '../../',
     frameworks: ['jasmine', 'browserify'],
     preprocessors: {
-      'app/modules/**/*.js': ['browserify', 'babel', 'coverage']
+      'client/app/modules/**/*.js': ['browserify', 'babel', 'coverage']
       //'app/js/**/*.js': ['browserify', 'babel', 'coverage']
     },
     browsers: ['Chrome'],
@@ -20,7 +20,7 @@ module.exports = function(config) {
 
     coverageReporter: {
       type : 'html',
-      dir : 'coverage/'
+      dir : 'client/coverage/'
     },
 
     autoWatch: true,
@@ -45,13 +45,13 @@ module.exports = function(config) {
 
     files: [
       // app-specific code
-      'app/modules/core/main.js',
+      'client/app/modules/core/main.js',
 
       // 3rd-party resources
       'node_modules/angular-mocks/angular-mocks.js',
 
       // test files
-      'test/unit/**/*.js'
+      'client/test/unit/**/*.js'
     ]
 
   });

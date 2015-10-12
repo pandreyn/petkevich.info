@@ -1,6 +1,6 @@
 'use strict';
 
-var root = 'build';
+var root = 'client/build';
 
 module.exports = {
 
@@ -9,7 +9,7 @@ module.exports = {
   'serverPort'   : 3002,
 
   'styles': {
-    'src' : 'app/styles/**/*.scss',
+    'src' : 'client/app/styles/**/*.scss',
     'modulesSrc' : ['node_modules/angular-material/angular-material.css'],
     'dest': root + '/css',
     'prodSourcemap': false,
@@ -17,27 +17,27 @@ module.exports = {
   },
 
   'scripts': {
-    'src' : 'app/**/*.js',
+    'src' : 'client/app/**/*.js',
     'dest': root + '/js'
   },
 
   'images': {
-    'src' : 'app/images/**/*',
+    'src' : 'client/app/images/**/*',
     'dest': root + '/images'
   },
 
   'fonts': {
-    'src' : ['app/fonts/**/*'],
+    'src' : ['client/app/fonts/**/*'],
     'dest': root + '/fonts'
   },
 
   'views': {
     'watch': [
-      'app/index.html',
-      'app/**/*.html'
+      'client/app/index.html',
+      'client/app/**/*.html'
     ],
-    'src': ['app/**/*.html', '!app/index.html'],
-    'dest': 'app/modules/core'
+    'src': ['client/app/**/*.html', '!client/app/index.html'],
+    'dest': 'client/app/modules/core'
   },
 
   'gzip': {
@@ -51,14 +51,14 @@ module.exports = {
   },
 
   'browserify': {
-    'entries'   : ['./app/modules/core/main.js'],
+    'entries'   : ['./client/app/modules/core/main.js'],
     'bundleName': 'main.js',
     'prodSourcemap' : false
   },
 
   'test': {
-    'karma': 'test/karma.conf.js',
-    'protractor': 'test/protractor.conf.js'
+    'karma': 'client/test/karma.conf.js',
+    'protractor': 'client/test/protractor.conf.js'
   }
 
 };

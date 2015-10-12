@@ -1,11 +1,7 @@
 node_modules
-bower_components
 .idea
-.tmp/**
-dist
-npm-debug.log
 build
-app/js/templates.js
-app/modules/core/templates.js
 gulp/secret.js
 coverage
+
+public/app/modules/core/templates.js
