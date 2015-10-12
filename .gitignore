@@ -4,4 +4,4 @@ build
 gulp/secret.js
 coverage
 
-public/app/modules/core/templates.js
+client/app/modules/core/templates.js
