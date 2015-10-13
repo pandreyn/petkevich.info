@@ -30,10 +30,7 @@
                 </md-menu>
               </div>
               <div flex>
-                <h3 ng-click="$mdOpenMenu($event)">Name: {{ item.name }}</h3>
-              </div>
-              <div flex>
-                <h4>Url: <a ng-href="{{item.url}}" target="_blank" title="{{item.description}}">{{item.url}}</a></h4>
+                <h3 ng-click="$mdOpenMenu($event)"><a ng-href="{{item.url}}" target="_blank" title="{{item.description}}">{{item.name}}</a></h3>
               </div>
               <div flex>
                 <p>{{item.description}}</p>

@@ -9,7 +9,7 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var sites = require('./routes/sites');
 
-var debug = require('debug')('sitesApp');
+var debug = require('debug')('express');
 
 var mongoose = require('mongoose');
 
