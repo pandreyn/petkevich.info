@@ -2,7 +2,7 @@
 
 //var secret = require('../secret');
 var gulp = require('gulp');
-var ftp = require('vinyl-ftp');
+//var ftp = require('vinyl-ftp');
 
 
 gulp.task('deploy', ['prod'], function () {
