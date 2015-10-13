@@ -12,9 +12,9 @@ var sites = require('./routes/sites');
 var debug = require('debug')('sitesApp');
 
 var mongoose = require('mongoose');
-var secret = require('./gulp/secret');
 
-mongoose.connect(secret.mongo.connStr, function(err) {
+var mongoConnectionString = process.env.MONGOLAB_MY_URI;
+mongoose.connect(mongoConnectionString, function(err) {
   if(err) {
     debug('connection error', err);
   } else {
