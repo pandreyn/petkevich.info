@@ -15,6 +15,14 @@
   "engines": {
     "node": ">=0.12.x"
   },
+  "scripts": {
+    "start": "node ./start.js",
+    "postinstall": "gulp prod",
+    "pretest": "npm install",
+    "test": "karma start test/karma.conf.js",
+    "preprotractor": "npm run update-webdriver",
+    "protractor": "npm run protractor test/protractor.conf.js"
+  },
   "devDependencies": {
     "babelify": "^6.3.0",
     "balanced-match": "^0.2.0",
@@ -71,14 +79,6 @@
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.4.0",
     "wrappy": "^1.0.1"
-  },
-  "scripts": {
-    "start": "node start.js",
-    "postinstall": "gulp prod",
-    "pretest": "npm install",
-    "test": "karma start test/karma.conf.js",
-    "preprotractor": "npm run update-webdriver",
-    "protractor": "npm run protractor test/protractor.conf.js"
   },
   "dependencies": {
     "angular": "^1.4.7",
