@@ -1,0 +1,11 @@
+'use strict';
+
+var config = require('./gulp/config');
+var debug = require('debug')('appServer');
+var app = require('./server_app.js');
+
+app.set('port', config.serverPort || 3000);
+
+var server = app.listen(app.get('port'), function () {
+  debug('Express server listening on port ' + server.address().port);
+});

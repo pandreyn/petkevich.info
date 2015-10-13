@@ -20,8 +20,6 @@ var ngAnnotate = require('browserify-ngannotate');
 // Based on: http://blog.avisi.nl/2014/04/25/how-to-keep-a-fast-build-with-browserify-and-reactjs/
 function buildScript(file) {
 
-  var doFullReload = false;
-
   var bundler = browserify({
     entries: config.browserify.entries,
     debug: true,
@@ -29,7 +27,6 @@ function buildScript(file) {
     packageCache: {},
     fullPaths: !global.isProd
   });
-
 
   if (!global.isProd) {
     bundler = watchify(bundler);

@@ -8,7 +8,7 @@ var SitesSchema = new mongoose.Schema({
   name: String,
   description: String,
   url: String,
-  updated_at: { type: Date, default: Date.now },
+  updated_at: { type: Date, default: Date.now }
 });
 
 module.exports = mongoose.model('Sites', SitesSchema);

@@ -1,6 +1,3 @@
-/**
- * Created by andrey on 12.10.15.
- */
 
 var express = require('express');
 var path = require('path');
@@ -15,11 +12,13 @@ var sites = require('./routes/sites');
 var debug = require('debug')('sitesApp');
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/sitesApp', function(err) {
+var secret = require('./gulp/secret');
+
+mongoose.connect(secret.mongo.connStr, function(err) {
   if(err) {
-    console.log('connection error', err);
+    debug('connection error', err);
   } else {
-    console.log('connection successful');
+    debug('connection successful');
   }
 });
 
@@ -69,14 +68,6 @@ app.use(function(err, req, res, next) {
     message: err.message,
     error: {}
   });
-});
-
-app.set('port', process.env.PORT || 3000);
-
-console.log('start-1');
-var server = app.listen(app.get('port'), function() {
-  console.log('start-2');
-  debug('Express server listening on port ' + server.address().port);
 });
 
 

@@ -1,20 +1,53 @@
+<md-card flex>
+  <md-card-content>
 
 
-<div layout="row" layout-align="center">
-
-
-  <div class="md-padding" ng-cloak>
-    <fieldset class="standard">
-      <legend>{{ vm.title }}</legend>
-      <div layout="row" layout-wrap ng-repeat="item in vm.sites">
-
-        <div flex="100">
-          <a ng-href="{{item.url}}" target="_blank" title="{{item.description}}">{{item.name}}</a>
+    <md-list>
+      <md-subheader class="md-no-sticky">List</md-subheader>
+      <md-list-item class="md-3-line" ng-repeat="item in vm.sites">
+        <div class="md-list-item-text">
+          <md-content>
+            <div layout="row" layout-sm="column">
+              <div flex>
+                <md-menu>
+                  <md-button class="md-raised" aria-label="Open demo menu" ng-click="$mdOpenMenu($event)">
+                    <i class="fa fa-wrench"></i>
+                  </md-button>
+                  <md-menu-content>
+                    <md-menu-item>
+                      <md-button ng-click="vm.addSite($event, item)">
+                        <i class="fa fa-edit"></i>
+                        Edit {{item.name}}
+                      </md-button>
+                    </md-menu-item>
+                    <md-menu-item>
+                      <md-button ng-click="vm.deleteSite($event, item)">
+                        <i class="fa fa-trash"></i>
+                        Delete {{item.name}}
+                      </md-button>
+                    </md-menu-item>
+                  </md-menu-content>
+                </md-menu>
+              </div>
+              <div flex>
+                <h3 ng-click="$mdOpenMenu($event)">Name: {{ item.name }}</h3>
+              </div>
+              <div flex>
+                <h4>Url: <a ng-href="{{item.url}}" target="_blank" title="{{item.description}}">{{item.url}}</a></h4>
+              </div>
+              <div flex>
+                <p>{{item.description}}</p>
+              </div>
+            </div>
+          </md-content>
         </div>
+        <md-divider></md-divider>
+      </md-list-item>
+    </md-list>
 
-      </div>
-    </fieldset>
-  </div>
+  </md-card-content>
+</md-card>
 
-
-</div>
+<md-button class="md-primary md-fab md-fab-bottom-right" ng-click="vm.addSite()" aria-label="Add site">
+  <i class="fa fa-plus"></i>
+</md-button>

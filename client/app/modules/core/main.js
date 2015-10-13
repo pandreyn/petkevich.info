@@ -5,6 +5,7 @@ var angular = require('angular');
 // angular modules
 require('angular-ui-router');
 require('angular-material');
+require('angular-resource');
 require('./templates');
 require('../sites/_index');
 
@@ -15,6 +16,7 @@ angular.element(document).ready(function() {
     'ui.router',
     'templates',
     'ngMaterial',
+    'ngResource',
     'app.sitesModule'
   ];
 

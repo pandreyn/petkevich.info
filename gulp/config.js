@@ -10,14 +10,14 @@ module.exports = {
 
   'styles': {
     'src' : 'client/app/styles/**/*.scss',
-    'modulesSrc' : ['node_modules/angular-material/angular-material.css'],
+    'modulesSrc' : ['node_modules/angular-material/angular-material.css', 'node_modules/font-awesome/css/font-awesome.css'],
     'dest': root + '/css',
     'prodSourcemap': false,
     'sassIncludePaths': []
   },
 
   'scripts': {
-    'src' : 'client/app/**/*.js',
+    'src' : 'client/app/modules/**/*.js',
     'dest': root + '/js'
   },
 
@@ -27,7 +27,7 @@ module.exports = {
   },
 
   'fonts': {
-    'src' : ['client/app/fonts/**/*'],
+    'src' : ['client/app/fonts/**/*', 'node_modules/font-awesome/fonts/**/*'],
     'dest': root + '/fonts'
   },
 

@@ -13,16 +13,44 @@
 </head>
 
 <body>
-  <div layout="column" flex>
-    <md-toolbar layout="row">
-      <div class="md-toolbar-tools">
-        <div flex>Andrey</div>
-      </div>
 
-    </md-toolbar>
-    <md-content ui-view layout="column" flex></md-content>
+<md-content>
+  <!-- The top toolbar -->
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <md-button class="md-icon-button" aria-label="Settings">
+        <i class="fa fa-check"></i>
+      </md-button>
+      <h2>
+        <span class="md-title">Sites!</span>
+      </h2>
+    </div>
+  </md-toolbar>
+
+
+  <!-- The content area -->
+  <div layout="row"  layout-sm="column">
+    <!-- 20% padding to the left -->
+    <div flex="10" hide-sm></div>
+
+    <!-- The main action happens here -->
+    <div ui-view layout="column" flex></div>
+
+    <!-- 20% padding to the right -->
+    <div flex="10" hide-sm></div>
   </div>
+</md-content>
+<script src="js/main.js"></script>
+
+<!--<md-content>-->
+<!--<md-toolbar layout="row">-->
+<!--<div class="md-toolbar-tools">-->
+<!--<div flex>Andrey</div>-->
+<!--</div>-->
+
+<!--</md-toolbar>-->
+<!--<md-content ui-view layout="column" flex></md-content>-->
+<!--</md-content>-->
 </body>
 
-<script src="js/main.js"></script>
 </html>

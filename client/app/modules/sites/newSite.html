@@ -1,0 +1,35 @@
+<md-dialog aria-label="Add site dialog">
+  <md-dialog-content>
+    <md-content layout-padding>
+      <form name="addSiteForm">
+
+        <div layout layout-sm="column">
+          <md-input-container flex>
+            <label>Site name</label>
+            <input ng-model="site.name">
+          </md-input-container>
+
+        </div>
+
+        <md-input-container flex>
+          <label>Url</label>
+          <input ng-model="site.url">
+        </md-input-container>
+
+        <md-input-container flex>
+          <label>Description</label>
+          <textarea ng-model="site.description" columns="1" md-maxlength="250"></textarea>
+        </md-input-container>
+      </form>
+    </md-content>
+
+  </md-dialog-content>
+  <div class="md-actions">
+    <md-button ng-click="ok()" class="md-primary">
+      Save
+    </md-button>
+    <md-button ng-click="cancel()">
+      Close
+    </md-button>
+  </div>
+</md-dialog>
