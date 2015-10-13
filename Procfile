@@ -1,0 +1,1 @@
+web: gulp prod node start.js
