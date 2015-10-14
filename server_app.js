@@ -12,20 +12,6 @@ var sites = require('./routes/sites');
 var debug = require('debug')('express');
 
 var mongoose = require('mongoose');
-var Sequelize = require('sequelize');
-//var restful   = require('sequelize-restful');
-
-//var sequelize = new Sequelize(process.env.MONGOLAB_MY_URI);
-var sequelize = new Sequelize('postgres://qnvmqoqlrgsagj:JwwSpv3kTfhNOBV0BuBLoJEapi@ec2-54-83-10-210.compute-1.amazonaws.com:5432/delt4tdn4o2oqn');
-
-var mongoConnectionString = process.env.MONGOLAB_MY_URI;
-mongoose.connect(mongoConnectionString, function(err) {
-  if(err) {
-    debug('connection error', err);
-  } else {
-    debug('connection successful');
-  }
-});
 
 var app = express();
 
