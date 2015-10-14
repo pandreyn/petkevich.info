@@ -12,6 +12,11 @@ var sites = require('./routes/sites');
 var debug = require('debug')('express');
 
 var mongoose = require('mongoose');
+var Sequelize = require('sequelize');
+//var restful   = require('sequelize-restful');
+
+//var sequelize = new Sequelize(process.env.MONGOLAB_MY_URI);
+var sequelize = new Sequelize('postgres://qnvmqoqlrgsagj:JwwSpv3kTfhNOBV0BuBLoJEapi@ec2-54-83-10-210.compute-1.amazonaws.com:5432/delt4tdn4o2oqn');
 
 var mongoConnectionString = process.env.MONGOLAB_MY_URI;
 mongoose.connect(mongoConnectionString, function(err) {
@@ -39,6 +44,8 @@ app.use(express.static(path.join(__dirname, 'client/build')));
 app.use('/', routes);
 app.use('/sites', sites);
 
+//app.use(restful(sequelize));
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
@@ -48,27 +55,27 @@ app.use(function(req, res, next) {
 
 // error handlers
 
-// development error handler
-// will print stacktrace
-if (app.get('env') === 'development') {
-  app.use(function(err, req, res, next) {
-    res.status(err.status || 500);
-    res.render('error', {
-      message: err.message,
-      error: err
-    });
-  });
-}
-
-// production error handler
-// no stacktraces leaked to user
-app.use(function(err, req, res, next) {
-  res.status(err.status || 500);
-  res.render('error', {
-    message: err.message,
-    error: {}
-  });
-});
+//// development error handler
+//// will print stacktrace
+//if (app.get('env') === 'development') {
+//  app.use(function(err, req, res, next) {
+//    res.status(err.status || 500);
+//    res.render('error', {
+//      message: err.message,
+//      error: err
+//    });
+//  });
+//}
+//
+//// production error handler
+//// no stacktraces leaked to user
+//app.use(function(err, req, res, next) {
+//  res.status(err.status || 500);
+//  res.render('error', {
+//    message: err.message,
+//    error: {}
+//  });
+//});
 
 
 module.exports = app;

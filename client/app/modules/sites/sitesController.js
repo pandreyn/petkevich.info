@@ -25,7 +25,7 @@ controllersModule.controller('SitesCtrl',
               $scope.site = {url: 'http://', isNew: true};
 
               if (editedSite) {
-                $scope.site = editedSite;
+                $scope.site = angular.copy(editedSite);
                 $scope.site.isNew = false;
               }
 
@@ -78,7 +78,7 @@ controllersModule.controller('SitesCtrl',
           if (site.isNew) {
             service.save(site, success, failure);
           } else {
-            service.update({id: site._id}, site, success, failure);
+            service.update({id: site.id}, site, success, failure);
           }
 
           return deferred.promise;
@@ -89,7 +89,7 @@ controllersModule.controller('SitesCtrl',
 
           console.log('delete: ', site);
 
-          service.delete({id: site._id}, function () {
+          service.delete({id: site.id}, function () {
             showSimpleToast('Successfully deleted!');
             load();
           }, function (responce) {

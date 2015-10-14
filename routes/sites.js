@@ -1,46 +1,73 @@
+'use strict';
+
 var express = require('express');
 var router = express.Router();
+var restful   = require('sequelize-restful');
 
-var mongoose = require('mongoose');
-var Sites = require('../models/sites.js');
+var models  = require('../models');
 
 /* GET /sites listing. */
 router.get('/', function(req, res, next) {
-  Sites.find(function (err, sites) {
-    if (err) return next(err);
+  models.Site.findAll().then(function(sites) {
     res.json(sites);
+  }, function(err) {
+    return next(err);
   });
 });
 
 /* POST /sites */
 router.post('/', function(req, res, next) {
-  Sites.create(req.body, function (err, post) {
-    if (err) return next(err);
+  models.Site.create({
+    name: req.body.name,
+    url: req.body.url,
+    description: req.body.description
+  }).then(function(post) {
     res.json(post);
+  }, function(err) {
+    return next(err);
   });
 });
 
 /* GET /sites/id */
 router.get('/:id', function(req, res, next) {
-  Sites.findById(req.params.id, function (err, post) {
-    if (err) return next(err);
-    res.json(post);
+  models.Site.findById(req.params.id).then(function(site) {
+    res.json(site);
+  }, function(err) {
+    return next(err);
   });
 });
 
 /* PUT /sites/:id */
 router.put('/:id', function(req, res, next) {
-  Sites.findByIdAndUpdate(req.params.id, req.body, function (err, post) {
-    if (err) return next(err);
-    res.json(post);
+  models.Site.findById(req.params.id).then(function(site) {
+    site.updateAttributes({
+      name: req.body.name,
+      url: req.body.url,
+      description: req.body.description
+    }).then(function(site) {
+      res.json(site);
+    });
+  }, function(err) {
+    return next(err);
   });
 });
+//router.put('/:id', function(req, res, next) {
+//  Sites.findByIdAndUpdate(req.params.id, req.body, function (err, post) {
+//    if (err) return next(err);
+//    res.json(post);
+//  });
+//});
 
 /* DELETE /sites/:id */
 router.delete('/:id', function(req, res, next) {
-  Sites.findByIdAndRemove(req.params.id, req.body, function (err, post) {
-    if (err) return next(err);
+  models.Site.destroy({
+    where: {
+      id: req.params.id
+    }
+  }).then(function(post) {
     res.json(post);
+  }, function(err) {
+    return next(err);
   });
 });
 
