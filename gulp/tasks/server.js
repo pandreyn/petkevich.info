@@ -1,15 +1,18 @@
 'use strict';
 
 var gulp = require('gulp');
-var debug = require('debug')('gulpServer');
-var exec = require('child_process').exec;
+var debug = require('debug')('devServer');
+var gls = require('gulp-live-server');
+//var exec = require('child_process').exec;
 
 
 gulp.task('server', function (cb) {
 
-  exec('node start.js', function (err, stdout, stderr) {
-    debug(stdout);
-    cb(err);
-  });
+  var server = gls.new('start.js');
+  server.start();
+
+  gulp.watch(['start.js', 'server_app.js', 'models/**/*.*', 'routes/**/*.*'], function() {
+    server.start.bind(server)()
+  }); //restart my server
 
 });

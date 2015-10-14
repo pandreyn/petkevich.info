@@ -5,7 +5,7 @@ var app = require('./server_app.js');
 var debug = require('debug')('app');
 var db      = require('./models');
 
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || config.serverPort);
 
 db.sequelize.sync().then(function() {
   var server = app.listen(app.get('port'), function () {

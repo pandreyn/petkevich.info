@@ -51,12 +51,6 @@ router.put('/:id', function(req, res, next) {
     return next(err);
   });
 });
-//router.put('/:id', function(req, res, next) {
-//  Sites.findByIdAndUpdate(req.params.id, req.body, function (err, post) {
-//    if (err) return next(err);
-//    res.json(post);
-//  });
-//});
 
 /* DELETE /sites/:id */
 router.delete('/:id', function(req, res, next) {
