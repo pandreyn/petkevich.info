@@ -9,6 +9,9 @@ var browserSync = require('browser-sync');
 
 gulp.task('images', function() {
 
+  gulp.src(config.favicon.src)
+      .pipe(gulp.dest(config.favicon.dest));
+
   return gulp.src(config.images.src)
     .pipe(changed(config.images.dest)) // Ignore unchanged files
     .pipe(gulpif(global.isProd, imagemin())) // Optimize

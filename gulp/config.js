@@ -26,6 +26,11 @@ module.exports = {
     'dest': root + '/images'
   },
 
+  'favicon': {
+    'src' : 'client/app/favicon.ico',
+    'dest': root
+  },
+
   'fonts': {
     'src' : ['client/app/fonts/**/*', 'node_modules/font-awesome/fonts/**/*'],
     'dest': root + '/fonts'
