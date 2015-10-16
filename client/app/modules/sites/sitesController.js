@@ -52,10 +52,24 @@ controllersModule.controller('SitesCtrl',
         }
 
         function showSimpleToast(message) {
+
+          var toastPosition = {
+            bottom: true,
+            top: false,
+            left: true,
+            right: false
+          };
+
+          function getToastPosition() {
+            return Object.keys(toastPosition)
+                .filter(function(pos) { return toastPosition[pos]; })
+                .join(' ');
+          }
+
           $mdToast.show(
               $mdToast.simple()
                   .content(message)
-                  .position('top right')
+                  .position(getToastPosition())
                   .hideDelay(3000)
           );
         }

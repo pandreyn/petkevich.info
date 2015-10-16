@@ -11,7 +11,7 @@ gulp.task('server', function (cb) {
   var server = gls.new('start.js');
   server.start();
 
-  gulp.watch(['start.js', 'server_app.js', 'models/**/*.*', 'routes/**/*.*'], function() {
+  gulp.watch(['start.js', 'server_app.js', 'client/app/index.html', 'models/**/*.*', 'routes/**/*.*'], function() {
     server.start.bind(server)()
   }); //restart my server
 

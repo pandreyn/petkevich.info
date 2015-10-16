@@ -1,50 +1,68 @@
-<md-card flex>
-  <md-card-content>
+<div ng-controller="SitesCtrl" layout-fill>
 
+  <!-- Панель появляющаяся при выделении задачи -->
+  <md-toolbar ng-show="oneSelected" md-theme="cyan"
+              class="md-accent app-toolbar md-cyan-theme md-whiteframe-z2 fix-top">
+    <h1 class="md-toolbar-tools">
+      <md-button class=" md-accent nornal-round-btn" aria-label="Назад" ng-click="deselectAll()">
+        <md-tooltip>
+          Назад
+        </md-tooltip>
+        <md-icon icon="img/icons/ic_close_24px.svg">
+        </md-icon>
+      </md-button>
+      <span> Выбранно элементов: {{countSelected}}</span>
+
+      <div flex></div>
+      <md-button ng-click="archiveAll()" class="md-accent nornal-round-btn" aria-label="В архив">
+        <md-tooltip>
+          В архив
+        </md-tooltip>
+        <md-icon icon="img/icons/ic_done_all_24px.svg">
+        </md-icon>
+      </md-button>
+    </h1>
+  </md-toolbar>
+
+  <md-content class="list-cont">
 
     <md-list>
-      <md-subheader class="md-no-sticky">List</md-subheader>
       <md-list-item class="md-3-line" ng-repeat="item in vm.sites">
-        <div class="md-list-item-text">
-          <md-content>
-            <div layout="row" layout-sm="column">
-              <div flex>
-                <md-menu>
-                  <md-button class="md-raised" aria-label="Open demo menu" ng-click="$mdOpenMenu($event)">
-                    <i class="fa fa-wrench"></i>
-                  </md-button>
-                  <md-menu-content>
-                    <md-menu-item>
-                      <md-button ng-click="vm.addSite($event, item)">
-                        <i class="fa fa-edit"></i>
-                        Edit {{item.name}}
-                      </md-button>
-                    </md-menu-item>
-                    <md-menu-item>
-                      <md-button ng-click="vm.deleteSite($event, item)">
-                        <i class="fa fa-trash"></i>
-                        Delete {{item.name}}
-                      </md-button>
-                    </md-menu-item>
-                  </md-menu-content>
-                </md-menu>
-              </div>
-              <div flex>
-                <h3 ng-click="$mdOpenMenu($event)"><a ng-href="{{item.url}}" target="_blank" title="{{item.description}}">{{item.name}}</a></h3>
-              </div>
-              <div flex>
-                <p>{{item.description}}</p>
-              </div>
-            </div>
-          </md-content>
+        <!--<img ng-src="{{item.face}}?{{$index}}" class="md-avatar" alt="{{item.who}}" />-->
+        <!--<md-whiteframe class="md-whiteframe-z2 md-3-line">-->
+        <div class="md-list-item-text" layout="column">
+          <h3>who {{ item.who }}</h3>
+          <h4>what {{ item.what }}</h4>
+
+          <p>notes huentis pizdantes{{ item.notes }}</p>
+          <p>notes huentis pizdantes{{ item.notes }}</p>
         </div>
-        <md-divider></md-divider>
+
+        <div class="list-check-area" ng-mouseenter="showItem(item)" ng-mouseleave="hideItem(item)">
+          <div class="left-box active-checkbox">
+            <md-checkbox class="list-cb"
+                         ng-change="oneCheck(item)" ng-model="item.check">
+            </md-checkbox>
+          </div>
+        </div>
+
+        <md-divider ng-if="!$last"></md-divider>
+
+        <!--</md-whiteframe>-->
       </md-list-item>
     </md-list>
 
-  </md-card-content>
-</md-card>
 
-<md-button class="md-primary md-fab md-fab-bottom-right" ng-click="vm.addSite()" aria-label="Add site">
-  <i class="fa fa-plus"></i>
-</md-button>
+  </md-content>
+
+  <!-- Плавающая конопка добавления -->
+  <div class="float-btn">
+    <md-button class="md-primary md-fab" md-theme="red" aria-label="Добавить" ng-click="vm.addSite()">
+      <md-tooltip>
+        Добавить
+      </md-tooltip>
+      <i class="fa fa-plus"></i>
+    </md-button>
+
+  </div>
+</div>

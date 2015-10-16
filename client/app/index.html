@@ -6,51 +6,51 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <title ng-bind="pageTitle"></title>
   <meta name="description" content="">
-  <meta name="viewport" content="width=device-width">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link rel="stylesheet" href="css/vendors.css">
   <link rel="stylesheet" href="css/main.css">
 </head>
 
-<body>
+<body ng-controller="MainCtrl">
 
-<md-content>
-  <!-- The top toolbar -->
-  <md-toolbar>
-    <div class="md-toolbar-tools">
-      <md-button class="md-icon-button" aria-label="Settings">
-        <i class="fa fa-check"></i>
+  <!-- Верхняя панель-->
+  <md-toolbar class="app-toolbar md-whiteframe-z2 fix-top">
+    <div class="md-toolbar-tools" tabindex="0">
+      <md-button class="menu-icon normal-btn" ng-click="toggleRight()" aria-label="Toggle Menu">
+        <!--<md-tooltip>-->
+          <!--Меню-->
+        <!--</md-tooltip>-->
+        <i class="fa fa-bars"></i>
       </md-button>
-      <h2>
-        <span class="md-title">Sites!</span>
-      </h2>
+      Список сайтов
     </div>
   </md-toolbar>
 
+  <!--Сюда будут вставляться views-->
+  <div style="padding-top: 80px;" flex ui-view></div>
 
-  <!-- The content area -->
-  <div layout="row"  layout-sm="column">
-    <!-- 20% padding to the left -->
-    <div flex="10" hide-sm></div>
+  <!-- Боковая панель -->
+  <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left">
+    <div ng-controller="LeftCtrl" ng-click="close()">
+      <md-toolbar>
+        <h1 class="md-toolbar-tools">Меню</h1>
+      </md-toolbar>
+      <md-content>
+        <a class="menu-item menu-sub-item md-menu-item"
+           ng-click="menu.toggleSelectPage(page)"
+           ng-repeat="page in menu.pages"
+           ng-href="{{page.url}}"
+           md-highlight="menu.isPageSelected(page)"
+           md-ink-ripple="#bbb">
+          <span> {{page.discription}} </span>
+        </a>
+      </md-content>
+    </div>
+  </md-sidenav>
 
-    <!-- The main action happens here -->
-    <div ui-view layout="column" flex></div>
 
-    <!-- 20% padding to the right -->
-    <div flex="10" hide-sm></div>
-  </div>
-</md-content>
 <script src="js/main.js"></script>
-
-<!--<md-content>-->
-<!--<md-toolbar layout="row">-->
-<!--<div class="md-toolbar-tools">-->
-<!--<div flex>Andrey</div>-->
-<!--</div>-->
-
-<!--</md-toolbar>-->
-<!--<md-content ui-view layout="column" flex></md-content>-->
-<!--</md-content>-->
 </body>
 
 </html>

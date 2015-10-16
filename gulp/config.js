@@ -38,7 +38,6 @@ module.exports = {
 
   'views': {
     'watch': [
-      'client/app/index.html',
       'client/app/**/*.html'
     ],
     'src': ['client/app/**/*.html', '!client/app/index.html'],

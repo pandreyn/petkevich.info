@@ -4,7 +4,7 @@ var sitesModule = require('./_index.js');
 
 sitesModule.service('SitesService', ['$q', '$resource', function ($q, $resource) {
 
-  var uri = '/sites/:id';
+  var uri = '/api/sites/:id';
 
   return $resource(uri,
       {
