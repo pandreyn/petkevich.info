@@ -28,27 +28,22 @@
 
     <md-list>
       <md-list-item class="md-3-line" ng-repeat="item in vm.sites">
-        <!--<img ng-src="{{item.face}}?{{$index}}" class="md-avatar" alt="{{item.who}}" />-->
-        <!--<md-whiteframe class="md-whiteframe-z2 md-3-line">-->
-        <div class="md-list-item-text" layout="column">
-          <h3>who {{ item.who }}</h3>
-          <h4>what {{ item.what }}</h4>
 
-          <p>notes huentis pizdantes{{ item.notes }}</p>
-          <p>notes huentis pizdantes{{ item.notes }}</p>
+        <div class="md-list-item-text" layout="column">
+          <h3><a ng-href="{{item.url}}" target="_blank">{{item.name}}</a></h3>
+          <p>{{ item.description }}</p>
         </div>
 
-        <div class="list-check-area" ng-mouseenter="showItem(item)" ng-mouseleave="hideItem(item)">
+
           <div class="left-box active-checkbox">
             <md-checkbox class="list-cb"
-                         ng-change="oneCheck(item)" ng-model="item.check">
+                         ng-change="oneCheck(item)"
+                         ng-model="item.check">
             </md-checkbox>
           </div>
-        </div>
 
         <md-divider ng-if="!$last"></md-divider>
 
-        <!--</md-whiteframe>-->
       </md-list-item>
     </md-list>
 
