@@ -151,13 +151,20 @@ controllersModule.controller('SitesCtrl',
           });
         }
 
+        function check(item){
+          vm.oneSelected = true;
+          console.log('check item=', item);
+        }
+
         function activate() {
           load();
         }
 
+        vm.oneSelected = false;
         vm.title = 'List of useful sites!';
         vm.addSite = addSite;
         vm.deleteSite = deleteSite;
+        vm.check = check;
 
         activate();
 
