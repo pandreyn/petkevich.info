@@ -2,6 +2,9 @@
 
 var sitesModule = require('./_index.js');
 
+/**
+ * @ngInject
+ */
 sitesModule.service('SitesService', ['$q', '$resource', function ($q, $resource) {
 
   var uri = '/api/sites/:id';

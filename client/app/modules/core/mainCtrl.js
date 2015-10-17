@@ -4,6 +4,9 @@
 
 'use strict';
 
+/**
+ * @ngInject
+ */
 function MainController($scope, $timeout, $mdSidenav) {
   $scope.toggleRight = function() {
     $mdSidenav('left').toggle();

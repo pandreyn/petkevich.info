@@ -2,6 +2,9 @@
 
 var controllersModule = require('./_index');
 
+/**
+ * @ngInject
+ */
 controllersModule.controller('SitesCtrl',
     [
       'SitesService',

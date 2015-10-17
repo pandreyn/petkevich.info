@@ -4,6 +4,9 @@
 
 'use strict';
 
+/**
+ * @ngInject
+ */
 function LeftController($scope, $timeout, $mdSidenav) {
   $scope.close = function() {
     $mdSidenav('left').close();
