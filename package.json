@@ -15,7 +15,9 @@
   "engines": {
     "node": ">=0.12.x"
   },
-  "scripts": {},
+  "scripts": {
+    "start": "node ./start.js"
+  },
   "devDependencies": {
     "babel": "^5.8.23",
     "babel-core": "^5.8.25",
