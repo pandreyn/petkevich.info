@@ -73,6 +73,7 @@
     "require-dir": "^0.3.0",
     "rsvp": "^3.0.16",
     "run-sequence": "^1.0.2",
+    "sass-jspm-importer": "0.0.6",
     "sequelize": "^3.12.2",
     "sequelize-restful": "^0.4.3",
     "serve-favicon": "^2.3.0",

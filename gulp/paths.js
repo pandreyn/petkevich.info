@@ -6,6 +6,7 @@ module.exports = {
   html: clientRoot + '/**/*.html',
   json: clientRoot + '/src/**/*.json',
   templates: [clientRoot + '/src/**/*.html', '!' + clientRoot + '/src/index.html'],
+  templatesOutput: clientRoot + '/dist/modules/core',
   less: [clientRoot + '/src/**/*.less'],
   output: clientRoot + '/dist/',
   outputCss: clientRoot + '/dist/**/*.css',

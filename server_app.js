@@ -31,9 +31,9 @@ app.use(express.static(path.join(__dirname, clientRoot)));
 
 app.use(jsmpPackages, express.static(path.join(__dirname, jsmpPackages)));
 
-app.use('/*', function(req, res){
-  res.sendFile(path.join(__dirname, clientRoot + '/index.html'));
-});
+//app.use('/*', function(req, res){
+//  res.sendFile(path.join(__dirname, clientRoot + '/index.html'));
+//});
 
 //// catch 404 and forward to error handler
 //app.use(function(req, res, next) {

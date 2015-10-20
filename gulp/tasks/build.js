@@ -52,11 +52,11 @@ gulp.task('html', function () {
   return gulp.src(paths.templates)
       .pipe(plumber())
       //.pipe(changed(paths.output, {extension: '.html'}))
-      //.pipe(htmlMin({
-      //  empty: true,
-      //  spare: true,
-      //  quotes: true
-      //}))
+      .pipe(htmlMin({
+        empty: true,
+        spare: true,
+        quotes: true
+      }))
       .pipe(templateCache({
         standalone: true,
         moduleSystem: 'ES6'
