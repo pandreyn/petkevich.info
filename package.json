@@ -16,6 +16,8 @@
     "node": ">=0.12.x"
   },
   "scripts": {
+    "postinstall": "jspm install",
+    "prestart": "npm install",
     "start": "node ./start.js"
   },
   "devDependencies": {
