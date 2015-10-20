@@ -63,7 +63,7 @@ gulp.task('release', function (callback) {
   return runSequence(
     'clean',
     'build',
-    'bundle',
+    //'bundle',
     //'cache-bust',
     'replace',
     'inline-systemjs',

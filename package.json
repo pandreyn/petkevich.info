@@ -16,7 +16,7 @@
     "node": ">=0.12.x"
   },
   "scripts": {
-    "postinstall": "jspm install",
+    "postinstall": "jspm install && gulp build",
     "prestart": "npm install",
     "start": "node ./start.js"
   },
