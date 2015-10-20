@@ -5,7 +5,7 @@
   },
   "test": {
     "dialect": "sqlite",
-    "storage": "./db.development.sqlite"
+    "storage": "./db.test.sqlite"
   },
   "production": {
     "use_env_variable": "DATABASE_URL",
