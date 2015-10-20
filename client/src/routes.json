@@ -1,0 +1,14 @@
+[
+  {
+    "stateName": "home",
+    "urlPrefix": "/home",
+    "type": "load",
+    "src": "modules/home"
+  },
+  {
+    "stateName": "sites",
+    "urlPrefix": "/sites",
+    "type": "load",
+    "src": "modules/sites"
+  }
+]

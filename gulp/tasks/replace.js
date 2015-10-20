@@ -1,8 +1,9 @@
 var gulp = require('gulp');
+var paths = require('../paths');
 var replace = require('gulp-replace-task');
 
 gulp.task('replace', function(){
-  return gulp.src('./index.html')
+  return gulp.src('client/dist/index.html')
     .pipe(replace({
       usePrefix: false,
       patterns: [
@@ -16,7 +17,7 @@ gulp.task('replace', function(){
         },
         {
           match: '<!-- <script src="dist/app/app.js?bust={{date}}"></script> -->',
-          replacement: '<script src="dist/app/app.js?bust={{date}}"></script>'
+          replacement: '<script src="modules/core/main.js?bust={{date}}"></script>'
         },
         {
           match: '{{date}}',
@@ -24,5 +25,5 @@ gulp.task('replace', function(){
         }
       ]
     }))
-    .pipe(gulp.dest('./'));
+    .pipe(gulp.dest(paths.output));
 });
