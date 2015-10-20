@@ -1,16 +1,17 @@
-'use strict';
+var gulp = require('gulp');
+var paths = require('../paths');
+var browserSync = require('browser-sync');
 
-var config        = require('../config');
-var gulp          = require('gulp');
+function changed(event) {
+  console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
+}
 
-gulp.task('watch', ['browserSync', 'server'], function() {
 
-  // Scripts are automatically watched and rebundled by Watchify inside Browserify task
-  //gulp.watch(config.scripts.src, ['lint']);
-  gulp.watch(config.scripts.src, ['browserify']);
-  gulp.watch(config.styles.src,  ['styles']);
-  gulp.watch(config.images.src,  ['images']);
-  gulp.watch(config.fonts.src,   ['fonts']);
-  gulp.watch(config.views.watch, ['views']);
 
+gulp.task('watch', ['build'], function () {
+
+  gulp.watch([ paths.source ], [ 'es6', browserSync.reload ]).on('change', changed);
+  gulp.watch([ paths.html ], [ 'html', browserSync.reload ]).on('change', changed);
+  gulp.watch([ paths.less ], [ 'less' ]).on('change', changed);
+  gulp.watch([ paths.indexHtml ], [ 'move', browserSync.reload ]).on('change', changed);
 });

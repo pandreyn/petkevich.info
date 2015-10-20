@@ -11,7 +11,8 @@ var sites = require('./routes/sites');
 var debug = require('debug')('express');
 
 var app = express();
-var clientRoot = '/client/build';
+var clientRoot = '/client/dist';
+var jsmpPackages = '/jspm_packages';
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -26,9 +27,13 @@ app.use(cookieParser());
 
 app.use('/api/sites', sites);
 app.use(express.static(path.join(__dirname, clientRoot)));
-app.use('/*', function(req, res){
-  res.sendFile(path.join(__dirname, clientRoot + '/index.html'));
-});
+//app.use(express.static(path.join(__dirname, jsmpPackages)));
+
+app.use(jsmpPackages, express.static(path.join(__dirname, jsmpPackages)));
+
+//app.use('/*', function(req, res){
+//  res.sendFile(path.join(__dirname, clientRoot + '/index.html'));
+//});
 
 //// catch 404 and forward to error handler
 //app.use(function(req, res, next) {

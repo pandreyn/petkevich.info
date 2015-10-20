@@ -8,11 +8,19 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="stylesheet" href="css/vendors.css">
+  <!--<link rel="stylesheet" href="css/vendors.css">-->
   <link rel="stylesheet" href="css/main.css">
 </head>
 
 <body ng-controller="MainCtrl">
+
+  <noscript>
+    <div class="deprecation-warning">
+      <h1>Please enable Javascript</h1>
+      <p>Demo requires your browser to have Javascript enabled.
+        <a href="http://enable-javascript.com" target="_blank">Learn more</a></p>
+    </div>
+  </noscript>
 
   <!-- Верхняя панель-->
   <md-toolbar class="app-toolbar md-whiteframe-z2 fix-top">
@@ -50,7 +58,18 @@
   </md-sidenav>
 
 
-<script src="js/main.js"></script>
+  <!-- build:dev -->
+  <script src="../system.js"></script>
+  <script src="../system.config.js"></script>
+  <!-- endbuild -->
+
+  <!-- build:prod -->
+  <!-- <script src="dist/app/app.js?bust={{date}}"></script> -->
+  <!-- endbuild -->
+
+  <script>
+    System.import('modules/core/main');
+  </script>
 </body>
 
 </html>

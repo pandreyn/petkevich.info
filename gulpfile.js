@@ -13,4 +13,6 @@
 
 global.isProd = false;
 
-require('./gulp');
+//require('./gulp');
+
+require('require-dir')('gulp/tasks');

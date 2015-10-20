@@ -1,7 +1,9 @@
 node_modules
 .idea
-build
+client/dist
 gulp/secret.js
 coverage
 
 client/app/modules/core/templates.js
+
+jspm_packages
