@@ -9,7 +9,7 @@ System.config({
   },
   paths: {
     "systemjs-test/*": "client/src/*",
-    "modules/*": "client/dist/modules/*",
+    "app/*": "client/dist/app/*",
     "common/*": "client/dist/common/*",
     "assets/*": "client/dist/assets/*",
     "bundles/*": "client/dist/bundles/*",
