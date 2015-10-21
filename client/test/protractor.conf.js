@@ -1,6 +1,6 @@
 'use strict';
 
-var gulpConfig = require('../../gulp/config');
+var gulpConfig = require('../../gulp/paths');
 
 exports.config = {
 

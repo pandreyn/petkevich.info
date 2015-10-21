@@ -13,8 +13,8 @@ module.exports = function(config) {
       'client/app/modules/**/*.js': ['browserify', 'babel', 'coverage']
       //'app/js/**/*.js': ['browserify', 'babel', 'coverage']
     },
-    browsers: ['Chrome'],
-    //browsers: ['PhantomJS'],
+    //browsers: ['Chrome'],
+    browsers: ['PhantomJS'],
     reporters: ['progress', 'coverage'],
     //reporters: ['progress'],
 
@@ -45,7 +45,7 @@ module.exports = function(config) {
 
     files: [
       // app-specific code
-      'client/app/modules/core/main.js',
+      'client/src/modules/core/main.js',
 
       // 3rd-party resources
       'node_modules/angular-mocks/angular-mocks.js',

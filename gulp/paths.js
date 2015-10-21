@@ -13,5 +13,10 @@ module.exports = {
   outputCssFolder: clientRoot + '/dist/css/',
   tests: clientRoot + '/test/e2e/**/*.spec.js',
   indexHtml: clientRoot + '/src/index.html',
-  sass: clientRoot + '/src/styles/*.scss'
+  sass: clientRoot + '/src/styles/*.scss',
+  test: {
+    'karma': 'client/test/karma.conf.js',
+    'protractor': 'client/test/protractor.conf.js'
+  },
+  serverPort: 3002
 };
