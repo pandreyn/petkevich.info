@@ -84,7 +84,7 @@
     "systemjs": "^0.19.5",
     "systemjs-builder": "^0.14.9",
     "systemjs-route-bundler": "^1.1.4",
-    "traceur-runtime": "0.0.59",
+    "traceur": "0.0.92",
     "vinyl-paths": "^2.0.0"
   },
   "jspm": {

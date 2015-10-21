@@ -18,7 +18,7 @@ gulp.task('inline-systemjs', function () {
   return gulp.src([
     './jspm_packages/es6-module-loader.js',
     './jspm_packages/system.js',
-    './system.config.js',
+    'client/dist/modules/core/system.config.js',
     'client/dist/modules/core/main.js'
   ])
   //.pipe(uglify())
@@ -26,11 +26,24 @@ gulp.task('inline-systemjs', function () {
   .pipe(gulp.dest(paths.output));
 });
 
-gulp.task('bundle', function(){
-  return gulp.src('client/src/modules/core/main.js')
-      .pipe(gulp_jspm())
-      .pipe(gulp.dest('client/dist/'));
-});
+//gulp.task('bundle', function(){
+//  return gulp.src('client/src/modules/core/main.js')
+//      .pipe(gulp_jspm())
+//      .pipe(gulp.dest('client/dist/'));
+//});
+
+//gulp.task('bundle', 'Compile JS files into the app.js', function (cb) {
+//  var config = require('./jspm.conf.js');
+//  var builder = require('systemjs-builder');
+//
+//  builder.build('src/app/bootstrap',
+//      config,
+//          paths.tmp.scripts + 'app.js')
+//      .then(cb)
+//      .catch(function(ex) {
+//        cb(new Error(ex));
+//      });
+//});
 
 //gulp.task('bundle', function () {
 //  var routes = require('../../client/dist/routes.json');

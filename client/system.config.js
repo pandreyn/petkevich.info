@@ -1,5 +1,5 @@
 System.config({
-  baseURL: "/",
+  baseURL: "../",
   defaultJSExtensions: true,
   transpiler: "babel",
   babelOptions: {
@@ -8,12 +8,7 @@ System.config({
     ]
   },
   paths: {
-    "systemjs-test/*": "client/src/*",
-    "app/*": "client/dist/app/*",
-    "common/*": "client/dist/common/*",
-    "assets/*": "client/dist/assets/*",
-    "bundles/*": "client/dist/bundles/*",
-    "lib/*": "lib/*",
+    "app/*": "client/dist/modules/*",
     "github:*": "jspm_packages/github/*",
     "npm:*": "jspm_packages/npm/*",
     "jspm_packages/*": "client/jspm_packages/*"
