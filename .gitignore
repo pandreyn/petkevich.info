@@ -1,9 +1,8 @@
-node_modules
 .idea
-client/dist
-gulp/secret.js
-coverage
 
-client/app/modules/core/templates.js
-
+node_modules
 jspm_packages
+
+client/dist
+client/src/modules/core/templates.js
+

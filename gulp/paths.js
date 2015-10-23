@@ -5,7 +5,11 @@ module.exports = {
   source: clientRoot + '/src/**/*.js',
   html: clientRoot + '/**/*.html',
   json: clientRoot + '/src/**/*.json',
-  templates: [clientRoot + '/src/**/*.html', '!' + clientRoot + '/src/index.html'],
+  templates:
+      [
+        clientRoot + '/src/**/*.html',
+        '!' + clientRoot + '/src/index.html'
+      ],
   templatesOutput: clientRoot + '/dist/modules/core',
   less: [clientRoot + '/src/**/*.less'],
   output: clientRoot + '/dist/',
@@ -18,5 +22,9 @@ module.exports = {
     'karma': 'client/test/karma.conf.js',
     'protractor': 'client/test/protractor.conf.js'
   },
-  serverPort: 3002
+  'server': {
+    'browserPort'  : 3000,
+    'UIPort'       : 3001,
+    'serverPort'   : 3002
+  }
 };

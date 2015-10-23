@@ -8,7 +8,9 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var sites = require('./routes/sites');
-var debug = require('debug')('express');
+//var debug = require('debug')('express');
+var db = require('./models');
+var paths = require('./gulp/paths');
 
 var app = express();
 var clientRoot = '/client/dist';
@@ -22,7 +24,7 @@ app.set('view engine', 'ejs');
 app.use(favicon(__dirname + clientRoot + '/favicon.ico'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 
 app.use('/api/sites', sites);
@@ -31,9 +33,9 @@ app.use(express.static(path.join(__dirname, clientRoot)));
 
 app.use(jsmpPackages, express.static(path.join(__dirname, jsmpPackages)));
 
-//app.use('/*', function(req, res){
-//  res.sendFile(path.join(__dirname, clientRoot + '/index.html'));
-//});
+app.use('/*', function(req, res){
+  res.sendFile(path.join(__dirname, clientRoot + '/index.html'));
+});
 
 //// catch 404 and forward to error handler
 //app.use(function(req, res, next) {
@@ -45,7 +47,7 @@ app.use(jsmpPackages, express.static(path.join(__dirname, jsmpPackages)));
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
-  app.use(function(err, req, res, next) {
+  app.use(function (err, req, res, next) {
     res.status(err.status || 500);
     res.render('error', {
       message: err.message,
@@ -56,7 +58,7 @@ if (app.get('env') === 'development') {
 
 // production error handler
 // no stacktrace leaked to user
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   res.status(err.status || 500);
   res.render('error', {
     message: err.message,
@@ -65,4 +67,22 @@ app.use(function(err, req, res, next) {
 });
 
 
-module.exports = app;
+app.set('port', process.env.PORT || paths.server.serverPort);
+
+function start(cb) {
+  db.sequelize.sync().then(function () {
+    var server = app.listen(app.get('port'), function (err) {
+      if (err) {
+        console.log('start error: ', err);
+      }
+      console.log('Express server listening on port ' + server.address().port);
+      //debug('Express server listening on port ' + server.address().port);
+
+      if (cb && typeof cb == 'function') {
+        cb();
+      }
+    });
+  });
+}
+
+module.exports = {start: start};

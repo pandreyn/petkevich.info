@@ -1,5 +1,5 @@
 System.config({
-  baseURL: "../",
+  baseURL: "",
   defaultJSExtensions: true,
   transpiler: "babel",
   babelOptions: {
@@ -8,10 +8,10 @@ System.config({
     ]
   },
   paths: {
-    "app/*": "client/dist/modules/*",
+    "*": "*.js",
     "github:*": "jspm_packages/github/*",
-    "npm:*": "jspm_packages/npm/*",
-    "jspm_packages/*": "client/jspm_packages/*"
+    "npm:*": "jspm_packages/npm/*"
+    //"jspm_packages/*": "client/jspm_packages/*"
   },
   buildCSS: true,
   separateCSS: false,

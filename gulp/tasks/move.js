@@ -14,6 +14,7 @@ gulp.task('move', function () {
     root + '/src/**/*.gif',
     root + '/src/**/*.eot',
     root + '/src/index.html',
+    //root + '/src/**/templates.js',
     'jspm_packages/system.js',
     'client/system.config.js'
   ];

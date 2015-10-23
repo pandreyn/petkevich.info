@@ -15,7 +15,7 @@ import { MainController } from './mainCtrl';
 import homeModule from '../home/_index';
 import sitesModule from '../sites/_index';
 
-let app = angular.module('demo',
+let app = angular.module('sitesApplication',
     [
       'ui.router',
       'oc.lazyLoad',

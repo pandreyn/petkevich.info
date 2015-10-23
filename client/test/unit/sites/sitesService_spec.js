@@ -1,6 +1,4 @@
-/*global angular */
-
-'use strict';
+import angular from 'angular';
 
 describe('Unit: SitesService', function() {
 
@@ -8,10 +6,11 @@ describe('Unit: SitesService', function() {
 
   beforeEach(function() {
     // instantiate the app module
-    angular.mock.module('app');
+    module('sitesApplication');
+    module('app.sitesModule');
 
     // mock the service
-    angular.mock.inject(function(SitesService) {
+    inject(function(SitesService) {
       service = SitesService;
     });
   });

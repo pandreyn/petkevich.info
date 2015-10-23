@@ -1,12 +1,12 @@
 'use strict';
 
-var gulpConfig = require('../../gulp/paths');
+var paths = require('../../gulp/paths');
 
 exports.config = {
 
   allScriptsTimeout: 11000,
 
-  baseUrl: 'http://localhost:' + gulpConfig.serverPort + '/',
+  baseUrl: 'http://localhost:' + paths.server.serverPort + '/',
 
   directConnect: true,
 

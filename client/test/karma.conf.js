@@ -1,60 +1,72 @@
-'use strict';
-
-var istanbul = require('browserify-istanbul');
-var isparta  = require('isparta');
-
 module.exports = function(config) {
-
   config.set({
 
+    // base path that will be used to resolve all patterns (eg. files, exclude)
     basePath: '../../',
-    frameworks: ['jasmine', 'browserify'],
-    preprocessors: {
-      'client/app/modules/**/*.js': ['browserify', 'babel', 'coverage']
-      //'app/js/**/*.js': ['browserify', 'babel', 'coverage']
-    },
+
+    // frameworks to use
+    // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
+    frameworks: ['jspm', 'jasmine'],
+
+    // start these browsers
+    // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
     //browsers: ['Chrome'],
     browsers: ['PhantomJS'],
-    reporters: ['progress', 'coverage'],
-    //reporters: ['progress'],
 
-    coverageReporter: {
-      type : 'html',
-      dir : 'client/coverage/'
-    },
+    // test results reporter to use
+    // possible values: 'dots', 'progress'
+    // available reporters: https://npmjs.org/browse/keyword/karma-reporter
+    //reporters: ['progress', 'verbose', 'coverage'],
+    reporters: ['progress', 'verbose'],
 
-    autoWatch: true,
+    // Continuous Integration mode
+    // if true, Karma captures browsers, runs the tests and exits
     singleRun: true,
 
-    browserify: {
-      debug: true,
-      transform: [
-        'bulkify',
-        istanbul({
-          instrumenter: isparta,
-          ignore: ['**/node_modules/**', '**/test/**']
-        })
+    // enable / disable colors in the output (reporters and logs)
+    colors: true,
+
+    // list of files / patterns to load in the browser
+    files: [
+      //{pattern: 'client/dist/modules/**/*.js', included: false}
+    ],
+
+    jspm: {
+      // Edit this to your needs
+      config: 'client/system.config.js',
+      loadFiles: [
+        'client/test/unit/**/*.js',
+        'client/dist/modules/**/*.js'
+      ],
+      serveFiles: [
+        //'client/dist/modules/**/*.js'
       ]
     },
 
     proxies: {
-      '/': 'http://localhost:9876/'
+      '/jspm_packages': '/base/jspm_packages'
     },
 
-    urlRoot: '/__karma__/',
+    //urlRoot: '/__karma__/',
 
-    files: [
-      // app-specific code
-      'client/src/modules/core/main.js',
+    // list of files to exclude
+    exclude: [],
 
-      // 3rd-party resources
-      'node_modules/angular-mocks/angular-mocks.js',
+    // level of logging
+    // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
+    logLevel: config.LOG_INFO,
 
-      // test files
-      'client/test/unit/**/*.js'
-    ]
+    // preprocess matching files before serving them to the browser
+    // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
+    preprocessors: {
+      'client/test/unit/**/*.js': ['babel']
+    },
 
+    'babelPreprocessor': {
+      options: {
+        sourceMap: 'inline',
+        modules: 'system'
+      }
+    }
   });
-
 };
-

@@ -1,30 +1,19 @@
 var gulp = require('gulp');
 var browserSync = require('browser-sync');
 var historyApiFallback = require('connect-history-api-fallback');
+//var serverStart = require('../../server_app.js');
+var paths = require('../paths');
 
-gulp.task('serve', ['watch'], function (done) {
-
-
-  //'browserPort'  : 3000,
-  //    'UIPort'       : 3001,
-  //    'serverPort'   : 3002,
+gulp.task('serve', ['server', 'watch'], function (done) {
 
   browserSync.init({
-    port: 3000,
+    port: paths.server.browserPort,
     ui: {
-      port: 3001
+      port: paths.server.UIPort
     },
-    proxy: 'localhost:' + 3002,
+    proxy: 'localhost:' + paths.server.serverPort,
     logFileChanges: true,
     reloadOnRestart: true
   });
 
-  //browserSync({
-  //  open: false,
-  //  port: 9000,
-  //  server: {
-  //    baseDir: ['.'],
-  //    middleware: [ historyApiFallback() ]
-  //  }
-  //}, done);
 });
