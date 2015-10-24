@@ -8,10 +8,8 @@ System.config({
     ]
   },
   paths: {
-    "*": "*.js",
     "github:*": "jspm_packages/github/*",
     "npm:*": "jspm_packages/npm/*"
-    //"jspm_packages/*": "client/jspm_packages/*"
   },
   buildCSS: true,
   separateCSS: false,
