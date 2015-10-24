@@ -17,6 +17,7 @@
     "npm": "2.14.x"
   },
   "scripts": {
+    "postinstall": "jspm install",
     "test": "gulp test"
   },
   "dependencies": {
