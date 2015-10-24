@@ -17,7 +17,7 @@
     "npm": "2.14.x"
   },
   "scripts": {
-    "test": "jspm install && gulp test"
+    "test": "gulp test"
   },
   "dependencies": {
     "babel": "^5.8.23",
