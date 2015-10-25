@@ -1,10 +1,15 @@
 language: node_js
 node_js:
-- '4.1'
+- '4.x'
 env:
   global:
   - secure: Q7ElJDRvIYVvmfCz/sKefMMO7dJ89nIcxnY2u+rO6sH/TrjIipNJB7c+hj5LXW5MIy6+gAJCytmo4ZU+JlC43IUVm7/rHb0nSkkBUGahXYDibwxYP8kYPK7Nq5JtAC+NznMNmcDLKsdOI1emSFYATMqbJLTy8dzRIGqsuiAu2xwYIJFzuxGsxlzPbCwYwfwyr/8titCQQVIRv08hrHFes4syL8uJkXkvJfJgfvD6m5yOjOgFfBMemFUGzxzyBi9fpFOR6lXkwQGhI4kn4cPKq2nNNVamq5289ynCuH2uVxkU4lgmVzSfMuAKiMsomH253B9faq1E4Xr/CQ+CtlPYZtBxbgYBjam/QQajDdVBWO+NqlxIGemkPo5gpocsnIAWWjF71moP2wgNZ8Hm+ZPM7JqCF0Z/IBTiZp4frYHj2irxM8sWhF3dL+U4wk2DUQUb7/jajh6BmKyFiLoCs2hgK7C9JXNTP9SbBsM3mq1A0BFOFfMjkPLu5vOPU5KHMFtoDtq8QxXOVB783nOhE7rbFjR/vS0rG80K8JcVjqf36RcCHIHz4alRbTIs2MtWXif+uFkB4FGnFCpJkNLvY9uGvf1TNwgybqjgvpPV7n8i3+yP8O3bEAyGZvOC8Oz/Jx+WcUfHElrAI3u+8jYPd1QsL8CxLBXhhl5uvGifLaRUBuw=
 before_install:
-- npm install -g jspm
-- jspm config endpoints.github.auth $JSPM_GITHUB_AUTH_TOKEN
-- jspm config registries.github.timeouts.lookup 240
+  - npm install -g jspm
+  - jspm config endpoints.github.auth $JSPM_GITHUB_AUTH_TOKEN
+  - jspm config registries.github.timeouts.lookup 240
+after_install:
+  - jspm install
+before_script:
+  - npm install -g gulp
+script: gulp test
