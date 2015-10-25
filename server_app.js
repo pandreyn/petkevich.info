@@ -70,6 +70,9 @@ app.use(function (err, req, res, next) {
 app.set('port', process.env.PORT || paths.server.serverPort);
 
 function start(cb) {
+
+  console.log('Starting server!');
+
   db.sequelize.sync().then(function () {
     var server = app.listen(app.get('port'), function (err) {
       if (err) {
@@ -85,4 +88,4 @@ function start(cb) {
   });
 }
 
-module.exports = {start: start};
+module.exports = start;
