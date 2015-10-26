@@ -10,7 +10,6 @@ before_install:
   - jspm config registries.github.timeouts.lookup 240
 install:
   - npm install
-  - ./node_modules/protractor/bin/webdriver-manager update
 before_script:
   - export CHROME_BIN=chromium-browser
   - export DISPLAY=:99.0
