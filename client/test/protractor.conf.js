@@ -16,7 +16,7 @@ exports.config = {
     platform: 'ANY'
   },
 
-  chromeOnly: true,
+  //chromeOnly: true,
   //chromeDriver: '../../node_modules/protractor/selenium/chromedriver',
 
   framework: 'jasmine',
