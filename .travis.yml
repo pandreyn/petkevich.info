@@ -15,7 +15,6 @@ after_install:
   - jspm install
 before_script:
   - npm install -g gulp
-  - ./node_modules/protractor/bin/install_selenium_standalone
-  - java -jar selenium/selenium-server-standalone-2.35.0.jar -Dwebdriver.chrome.driver=./selenium/chromedriver &
-  - sleep 3
+  - ./node_modules/protractor/bin/webdriver-manager update
+  - ./node_modules/protractor/bin/webdriver-manager start
 script: gulp test
