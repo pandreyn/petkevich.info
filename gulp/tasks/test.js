@@ -12,8 +12,8 @@ var gutil           = require('gulp-util');
 var morgan          = require('morgan');
 var debug           = require('debug')('gulpServer');
 
-gulp.task('test', ['server'], function() {
-  return runSequence('unit', 'protractor');
+gulp.task('test', function() {
+  return runSequence('clean', 'build', 'server', 'unit', 'protractor');
 });
 
 gulp.task('unit', function (done) {

@@ -1,6 +1,6 @@
 var gulp        = require('gulp');
-var serverStart = require('../../server_app.js');
+var startServer = require('../../server_app.js');
 
-gulp.task('server', ['build'], function (cb) {
-  serverStart.start(cb);
+gulp.task('server', function (cb) {
+  startServer(cb);
 });

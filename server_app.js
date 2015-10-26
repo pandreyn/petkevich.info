@@ -16,26 +16,27 @@ var app = express();
 var clientRoot = '/client/dist';
 var jsmpPackages = '/jspm_packages';
 
+function setServerSettings() {
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
+  app.set('views', path.join(__dirname, 'views'));
+  app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
-app.use(favicon(__dirname + clientRoot + '/favicon.ico'));
-app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
-app.use(cookieParser());
+  app.use(favicon(__dirname + clientRoot + '/favicon.ico'));
+  app.use(logger('dev'));
+  app.use(bodyParser.json());
+  app.use(bodyParser.urlencoded({extended: false}));
+  app.use(cookieParser());
 
-app.use('/api/sites', sites);
-app.use(express.static(path.join(__dirname, clientRoot)));
+  app.use('/api/sites', sites);
+  app.use(express.static(path.join(__dirname, clientRoot)));
 //app.use(express.static(path.join(__dirname, jsmpPackages)));
 
-app.use(jsmpPackages, express.static(path.join(__dirname, jsmpPackages)));
+  app.use(jsmpPackages, express.static(path.join(__dirname, jsmpPackages)));
 
-app.use('/*', function(req, res){
-  res.sendFile(path.join(__dirname, clientRoot + '/index.html'));
-});
+  app.use('/*', function (req, res) {
+    res.sendFile(path.join(__dirname, clientRoot + '/index.html'));
+  });
 
 //// catch 404 and forward to error handler
 //app.use(function(req, res, next) {
@@ -46,32 +47,33 @@ app.use('/*', function(req, res){
 
 // development error handler
 // will print stacktrace
-if (app.get('env') === 'development') {
+  if (app.get('env') === 'development') {
+    app.use(function (err, req, res, next) {
+      res.status(err.status || 500);
+      res.render('error', {
+        message: err.message,
+        error: err
+      });
+    });
+  }
+
+// production error handler
+// no stacktrace leaked to user
   app.use(function (err, req, res, next) {
     res.status(err.status || 500);
     res.render('error', {
       message: err.message,
-      error: err
+      error: {}
     });
   });
+
+
+  app.set('port', process.env.PORT || paths.server.serverPort);
 }
-
-// production error handler
-// no stacktrace leaked to user
-app.use(function (err, req, res, next) {
-  res.status(err.status || 500);
-  res.render('error', {
-    message: err.message,
-    error: {}
-  });
-});
-
-
-app.set('port', process.env.PORT || paths.server.serverPort);
 
 function start(cb) {
 
-  console.log('Starting server!');
+  setServerSettings();
 
   db.sequelize.sync().then(function () {
     var server = app.listen(app.get('port'), function (err) {
