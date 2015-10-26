@@ -14,4 +14,6 @@ before_install:
   - sleep 5
 install:
   - npm install
+before_script:
+  - jspm install
 script: gulp test
