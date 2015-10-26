@@ -14,7 +14,7 @@ before_install:
 after_install:
   - jspm install
 before_script:
-  - npm install -g gulp
+  - npm install -g gulp protractor
   - ./node_modules/protractor/bin/webdriver-manager update
   - ./node_modules/protractor/bin/webdriver-manager start
 script: gulp test
